@@ -7,9 +7,9 @@ const TodoItem = ({tasks,index}) => {
 
     const dispatch=useDispatch()
   return (
-   <li className='flex flex-col sm:flex-row sm:items-center justify-between border-b-2 py-2 gap-2'>
+   <li className='flex flex-col sm:flex-row sm:items-center  dark:text-white justify-between border-b-2 border-sky-500 py-2 gap-2'>
     <div className='flex items-center'>
-        <span className='mr-4 text-gray-500'>{index+1}</span>
+        <span className='mr-4 text-gray-500 dark:text-white'>{index+1}</span>
         <span className={`mr-4 ${tasks.completed ?"line-through text-slate-500":"" }`}>{tasks.text}</span>
     </div>
 

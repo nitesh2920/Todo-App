@@ -10,5 +10,5 @@ import { composeWithDevTools } from "redux-devtools-extension";
 //     reducer:rootReducers,
 // });
 
-const store=createStore(todoReducer)
+const store=createStore(todoReducer,composeWithDevTools())
 export default store;

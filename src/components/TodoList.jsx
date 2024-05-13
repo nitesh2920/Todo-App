@@ -24,7 +24,7 @@ const TodoList = () => {
         }))
   return (
     <ul>
-        <li className="my-2 text-sm italic">All Your Tasks</li>
+        <li className="my-2 text-sm dark:text-white italic">All Your Tasks</li>
         {
             filteredTask.map((task,index)=>(
                

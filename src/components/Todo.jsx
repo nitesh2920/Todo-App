@@ -4,11 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTask, updateSearchTerm } from "../redux/action";
 import FilterButtons from "./FilterButtons.jsx";
 import TodoList from "./TodoList";
+import { IoMoon, IoSunny } from "react-icons/io5";
 
 const Todo = () => {
   const dispatch = useDispatch();
   const [newTask, setNewTask] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
+  const [dark, setDark] = useState(false);
+
+  const darkModeHandler = () => {
+    setDark(!dark);
+    document.body.classList.toggle("dark");
+  };
 
   const handleAddTask = (text) => {
     dispatch(addTask(text));
@@ -28,8 +35,20 @@ const Todo = () => {
   };
 
   return (
-    <div className="max-w-5xl mx-auto sm:mt-8 p-4 bg-gray-100 rounded">
-      <h2 className="mt-3 mb-6 text-2xl font-bold text uppercase">Todo app</h2>
+    <div className="w-screen h-screen text-center mx-auto  p-4 dark:bg-gray-600 bg-gray-200 rounded">
+      <div className="flex grow justify-between items-center">
+        <h2 className="mt-3 mb-6 text-2xl font-bold mx-auto dark:text-white text uppercase">
+          Todo app
+        </h2>
+        <button onClick={() => darkModeHandler()} className="mt-3 mb-6 ">
+          {
+            dark && <IoSunny size={40} className="text-white" /> // render sunny when dark is true
+          }
+          {
+            !dark && <IoMoon size={40} /> // render moon when dark is false
+          }
+        </button>
+      </div>
 
       <div className="flex items-center mb-4">
         <input
