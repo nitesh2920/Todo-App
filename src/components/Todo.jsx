@@ -35,8 +35,8 @@ const Todo = () => {
   };
 
   return (
-    <div className="w-screen h-screen text-center mx-auto  p-4 dark:bg-gray-600 bg-gray-200 rounded">
-      <div className="flex grow justify-between items-center">
+    <div className="w-full min-h-screen text-center mx-auto md:h-full p-4 dark:bg-gray-600 bg-gray-200 rounded">
+      <div className="flex justify-between items-center">
         <h2 className="mt-3 mb-6 text-2xl font-bold mx-auto dark:text-white text uppercase">
           Todo app
         </h2>
@@ -68,9 +68,9 @@ const Todo = () => {
         </button>
       </div>
 
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col items-center  md:flex-row justify-between">
         <FilterButtons />
-        <div className="flex items-center ">
+        <div className="flex items-center mt-4 md:mt-0">
           <input
             type="text"
             value={searchTerm}
@@ -83,7 +83,7 @@ const Todo = () => {
             onClick={handleAddTaskClick}
             className="ml-4 p-2 bg-blue-400 text-white rounded hover:bg-blue-700 "
           >
-            <BsSearch />
+            <BsSearch size={20}/>
           </button>
         </div>
       </div>
