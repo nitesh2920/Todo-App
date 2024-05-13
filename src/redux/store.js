@@ -2,7 +2,7 @@
 
 import {createStore} from "redux";
 
-import rootReducers from "./reducer/index";
+import todoReducer from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 
@@ -10,5 +10,5 @@ import { composeWithDevTools } from "redux-devtools-extension";
 //     reducer:rootReducers,
 // });
 
-const store=createStore(rootReducers,composeWithDevTools())
+const store=createStore(todoReducer)
 export default store;
