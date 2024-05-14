@@ -14,22 +14,23 @@ const TodoItem = ({tasks,index}) => {
     </div>
 
     <div className="space-x-3 ml-8">
-        <button  onClick ={()=>dispatch(toggleTask(index))}className='mr-2 text-sm  bg-blue-500 text-white sm:px-2 py-1 px-1 rounded' >{tasks.completed ? <FaToggleOff/>:<FaToggleOn/>}</button>
+        <button  data-tooltip-id="my-tooltip" data-tooltip-place="bottom" data-tooltip-content="toggle task" data-tooltip-float="true" onClick ={()=>dispatch(toggleTask(index))}className='mr-2 text-sm  bg-blue-500 text-white sm:px-2 py-1 px-1 rounded' >{tasks.completed ? <FaToggleOff/>:<FaToggleOn/>}</button>
         <button
           className="mr-2 text-sm bg-red-500 text-white sm:px-2 px-1 py-1 rounded"
           onClick={() => dispatch(removeTask(index))}
+          data-tooltip-id="my-tooltip" data-tooltip-place="bottom" data-tooltip-content="Delete Task"
         >
           <FaTrash />
         </button>
         {
             !tasks.completed && (
-                <button onClick ={()=>dispatch(markAllCompleted(index))}className='mr-2 text-sm  bg-blue-500 text-white sm:px-2 py-1 px-1 rounded'><FaCheck/></button>
+                <button data-tooltip-id="my-tooltip" data-tooltip-place="bottom" data-tooltip-content="completed task" data-tooltip-float="true" onClick ={()=>dispatch(markAllCompleted(index))}className='mr-2 text-sm  bg-blue-500 text-white sm:px-2 py-1 px-1 rounded'><FaCheck/></button>
             )
         }
 
         {
             tasks.completed && (
-                <button onClick ={()=>dispatch(incompletedTask(index))}className='mr-2 text-sm  bg-blue-500 text-white sm:px-2 py-1 px-1 rounded'><FaTimes/></button>
+                <button data-tooltip-id="my-tooltip" data-tooltip-place="bottom" data-tooltip-float="true" data-tooltip-content="Incompleted task" onClick ={()=>dispatch(incompletedTask(index))}className='mr-2 text-sm  bg-blue-500 text-white sm:px-2 py-1 px-1 rounded'><FaTimes/></button>
             )
         }
     </div>
