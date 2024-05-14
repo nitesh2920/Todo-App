@@ -6,7 +6,9 @@ import FilterButtons from "./FilterButtons.jsx";
 import TodoList from "./TodoList";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { Tooltip} from "react-tooltip";
-// import "react-tooltip/dist/react-tooltip.css";
+
+import { toast,ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Todo = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,9 @@ const Todo = () => {
   const [dark, setDark] = useState(false);
   const [tooltipVisible, setTooltipVisible] = useState(false);
 
+  const notifyTaskAdded=()=>{
+    toast("Task Added")
+  }
   const darkModeHandler = () => {
     setDark(!dark);
     document.body.classList.toggle("dark");
@@ -28,6 +33,11 @@ const Todo = () => {
     if (newTask.trim() !== "") {
       handleAddTask(newTask.trim());
       setNewTask("");
+      // toast("Task Added")
+      toast.info("Task added ! ",{
+        position:"top-right",
+        icon:false,
+      });
     }
   };
 
@@ -70,7 +80,7 @@ const Todo = () => {
           placeholder="Enter your task"
         />
         <button
-          onClick={handleAddTaskClick}
+          onClick={()=>{handleAddTaskClick()}}
           className="ml-4 p-2 bg-blue-400 text-white rounded hover:bg-blue-700 " 
           data-tooltip-place="bottom" data-tooltip-id="my-tooltip" data-tooltip-float="true" data-tooltip-content="Add Task"
         >
