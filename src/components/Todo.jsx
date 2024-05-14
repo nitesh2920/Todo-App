@@ -48,7 +48,7 @@ const Todo = () => {
   };
 
   return (
-    <div className="w-full min-h-screen text-center mx-auto md:h-full p-4 dark:bg-gray-600 bg-gray-200 rounded">
+    <div className="w-full min-h-screen text-center mx-auto md:h-full p-4 dark:bg-gray-600 bg-gray-200 ">
       <div className="flex justify-between items-center">
       
         <h2 className="mt-3 mb-6 text-2xl font-bold mx-auto dark:text-white text uppercase">
